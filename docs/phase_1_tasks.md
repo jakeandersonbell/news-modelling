@@ -6,7 +6,8 @@ Task 1: Outlet Curation & Coverage Matrix
 
 Define the target sources to ensure maximum diversity across the political and stylistic spectrum.
 
-[ ] Select 5-10 Target Outlets: Choose a mix of traditional broadsheets, tabloids, and digital-native publishers.
+[ ] Select 5-10 Target Outlets: Choose a mix of traditional broadsheets, tabloids, and digital-native publishers. Each must cover UK 
+and international news.
 
 [ ] Map the Political Spectrum: Ensure deliberate inclusion of left-leaning, centrist, and right-leaning publications (e.g., cross-referencing with AllSides or Ad Fontes media bias charts).
 
