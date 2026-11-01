@@ -1,0 +1,135 @@
+{
+  "_meta": {
+    "description": "Target outlets for Phase 1 data foundation. See docs/retrieval_strategy.md for the full access policy.",
+    "access_policy": "Content is collected only via legitimate means: official/licensed APIs, bulk archival corpora (GDELT/CC-NEWS), polite crawling of openly accessible pages, or licensed aggregators. No paywall or anti-bot circumvention.",
+    "field_notes": {
+      "access": "open | paywalled — whether full article text is freely available",
+      "retrieval_primary": "Preferred retrieval method; see retrieval_strategy.md access tiers A-E",
+      "retrieval_secondary": "Fallback retrieval method",
+      "retrieval_notes": "Method-specific caveats",
+      "requires_auth": "True where the outlet is paywalled and full text needs licensed/agreed access"
+    }
+  },
+  "sources": [
+    {
+      "outlet": "BBC News",
+      "id": "bbc_news",
+      "type": "rss",
+      "baseline_leaning": "Center",
+      "requires_auth": false,
+      "access": "open",
+      "retrieval_primary": "rss_trafilatura",
+      "retrieval_secondary": "cc_news",
+      "retrieval_notes": "Openly accessible; polite live crawl via RSS discovery. CC-NEWS for historical backfill.",
+      "feeds": [
+        { "category": "politics", "url": "http://feeds.bbci.co.uk/news/politics/rss.xml" },
+        { "category": "world", "url": "http://feeds.bbci.co.uk/news/world/rss.xml" }
+      ]
+    },
+    {
+      "outlet": "Reuters",
+      "id": "reuters",
+      "type": "rss",
+      "baseline_leaning": "Center",
+      "requires_auth": false,
+      "access": "open",
+      "retrieval_primary": "rss_trafilatura",
+      "retrieval_secondary": "cc_news",
+      "retrieval_notes": "Openly accessible. Beware heavy syndication — dedupe in Task 4. Licensed API available if budget allows.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.reutersagency.com/feed/?best-topics=political-general&post_type=best" },
+        { "category": "world", "url": "https://www.reutersagency.com/feed/?taxonomy=best-regions&post_type=best" }
+      ]
+    },
+    {
+      "outlet": "The Guardian",
+      "id": "the_guardian",
+      "type": "rss",
+      "baseline_leaning": "Center-Left",
+      "requires_auth": false,
+      "access": "open",
+      "retrieval_primary": "guardian_open_platform_api",
+      "retrieval_secondary": "rss_trafilatura",
+      "retrieval_notes": "Official Guardian Open Platform API is free and returns full article text; prefer it over scraping. RSS + trafilatura as fallback.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.theguardian.com/politics/rss" },
+        { "category": "world", "url": "https://www.theguardian.com/world/rss" }
+      ]
+    },
+    {
+      "outlet": "The Daily Telegraph",
+      "id": "the_telegraph",
+      "type": "rss",
+      "baseline_leaning": "Center-Right",
+      "requires_auth": true,
+      "access": "paywalled",
+      "retrieval_primary": "licensed_aggregator",
+      "retrieval_secondary": "direct_research_access",
+      "retrieval_notes": "Retained deliberately to explore legitimate access. Primary route: licensed aggregator (Factiva/Nexis/ProQuest) via institutional subscription. Secondary: direct research agreement with the outlet. Until then, metadata + freely available lede only via GDELT/CC-NEWS — no paywall circumvention. Full-text framing analysis deferred and flagged as a known limitation.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.telegraph.co.uk/politics/rss.xml" },
+        { "category": "world", "url": "https://www.telegraph.co.uk/world-news/rss.xml" }
+      ]
+    },
+    {
+      "outlet": "Daily Mail",
+      "id": "daily_mail",
+      "type": "rss",
+      "baseline_leaning": "Right",
+      "requires_auth": false,
+      "access": "open",
+      "retrieval_primary": "rss_trafilatura",
+      "retrieval_secondary": "cc_news",
+      "retrieval_notes": "Openly accessible; polite live crawl via RSS discovery.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.dailymail.co.uk/news/politics/index.rss" },
+        { "category": "world", "url": "https://www.dailymail.co.uk/news/worldnews/index.rss" }
+      ]
+    },
+    {
+      "outlet": "The Mirror",
+      "id": "the_mirror",
+      "type": "rss",
+      "baseline_leaning": "Left",
+      "requires_auth": false,
+      "access": "open",
+      "retrieval_primary": "rss_trafilatura",
+      "retrieval_secondary": "cc_news",
+      "retrieval_notes": "Openly accessible; polite live crawl via RSS discovery.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.mirror.co.uk/news/politics/rss.xml" },
+        { "category": "world", "url": "https://www.mirror.co.uk/news/world-news/rss.xml" }
+      ]
+    },
+    {
+      "outlet": "Politico EU",
+      "id": "politico_eu",
+      "type": "rss",
+      "baseline_leaning": "Center",
+      "requires_auth": false,
+      "access": "open",
+      "retrieval_primary": "rss_trafilatura",
+      "retrieval_secondary": "cc_news",
+      "retrieval_notes": "Openly accessible; some premium content may be gated — record coverage gaps rather than circumventing.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.politico.eu/section/uk/feed/" },
+        { "category": "world", "url": "https://www.politico.eu/section/world/feed/" }
+      ]
+    },
+    {
+      "outlet": "Financial Times",
+      "id": "financial_times",
+      "type": "rss",
+      "baseline_leaning": "Center",
+      "requires_auth": true,
+      "access": "paywalled",
+      "retrieval_primary": "licensed_aggregator",
+      "retrieval_secondary": "licensed_content_api",
+      "retrieval_notes": "Retained deliberately to explore legitimate access. Primary route: licensed aggregator (Factiva/Nexis/ProQuest) via institutional subscription. Secondary: FT licensed content/developer API. Until then, metadata + freely available lede only via GDELT/CC-NEWS — no paywall circumvention. Full-text framing analysis deferred and flagged as a known limitation.",
+      "feeds": [
+        { "category": "politics", "url": "https://www.ft.com/world-uk?format=rss" },
+        { "category": "world", "url": "https://www.ft.com/world?format=rss" }
+      ]
+    }
+  ]
+}

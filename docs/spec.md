@@ -43,6 +43,8 @@ root/
 │   └── processed/                   # Cleaned, chunked datasets ready for inference (gitignored)
 ├── docs/
 │   ├── spec.md                      # Project specification
+│   ├── phase_1_tasks.md             # Phase 1 task breakdown
+│   ├── extension_knowledge_graph.md # Optional knowledge graph / contradiction extension
 │   └── data_dictionary.md           # Schema for final modeled outputs and embeddings
 ├── notebooks/
 │   ├── 01_ingestion_trafilatura.ipynb # Testing RSS/GDELT and text extraction
@@ -80,3 +82,11 @@ root/
 *   **Clustering Cohesion:** Online agglomerative clustering maintains high precision on micro-events without semantic drift over the 1-week dormancy period.
 *   **Plurality Detection:** System successfully links cross-provider chunks discussing the same target event, surfacing quantifiable divergence in political leaning or target-based sentiment.
 *   **Accuracy:** Geographic and Political Leaning models achieve target F1 scores against human-annotated gold-standard evaluation sets.
+
+## 7. Phased Delivery
+
+Work is organised into two core phases followed by an optional extension.
+
+*   **Phase 1 — Data Foundation & Curation.** Collate a high-quality, multi-outlet, 3-month corpus spanning topic and political diversity. This dataset is the ground truth for developing the pipeline and training classifiers. Task breakdown: [docs/phase_1_tasks.md](phase_1_tasks.md).
+*   **Phase 2 — Modeling & Application.** Implement the models in §3 and the pipeline and presentation layers in §4 as a working application (dashboard + API), built on top of the Phase 1 dataset.
+*   **Extension — Knowledge Graph & Contradiction Engine (optional, post-MVP).** Layered on top of the working application, this extension builds a claim-level knowledge graph (`[Source] -> [CLAIMS] -> [Statement]`) to surface cross-provider contradictions. It is deliberately kept off the critical path and can be scoped, deferred, or dropped without affecting the core deliverable. Notes: [docs/extension_knowledge_graph.md](extension_knowledge_graph.md).
