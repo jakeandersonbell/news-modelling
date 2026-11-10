@@ -3,6 +3,7 @@
     "description": "Target outlets for Phase 1 data foundation. See docs/retrieval_strategy.md for the full access policy.",
     "access_policy": "Content is collected only via legitimate means: official/licensed APIs, bulk archival corpora (GDELT/CC-NEWS), polite crawling of openly accessible pages, or licensed aggregators. No paywall or anti-bot circumvention.",
     "field_notes": {
+      "domain": "Primary registrable domain used for GDELT and CC-NEWS queries",
       "access": "open | paywalled — whether full article text is freely available",
       "retrieval_primary": "Preferred retrieval method; see retrieval_strategy.md access tiers A-E",
       "retrieval_secondary": "Fallback retrieval method",
@@ -14,6 +15,7 @@
     {
       "outlet": "BBC News",
       "id": "bbc_news",
+      "domain": "bbc.co.uk",
       "type": "rss",
       "baseline_leaning": "Center",
       "requires_auth": false,
@@ -29,6 +31,7 @@
     {
       "outlet": "Reuters",
       "id": "reuters",
+      "domain": "reuters.com",
       "type": "rss",
       "baseline_leaning": "Center",
       "requires_auth": false,
@@ -44,6 +47,7 @@
     {
       "outlet": "The Guardian",
       "id": "the_guardian",
+      "domain": "theguardian.com",
       "type": "rss",
       "baseline_leaning": "Center-Left",
       "requires_auth": false,
@@ -59,6 +63,7 @@
     {
       "outlet": "The Daily Telegraph",
       "id": "the_telegraph",
+      "domain": "telegraph.co.uk",
       "type": "rss",
       "baseline_leaning": "Center-Right",
       "requires_auth": true,
@@ -74,6 +79,7 @@
     {
       "outlet": "Daily Mail",
       "id": "daily_mail",
+      "domain": "dailymail.co.uk",
       "type": "rss",
       "baseline_leaning": "Right",
       "requires_auth": false,
@@ -89,6 +95,7 @@
     {
       "outlet": "The Mirror",
       "id": "the_mirror",
+      "domain": "mirror.co.uk",
       "type": "rss",
       "baseline_leaning": "Left",
       "requires_auth": false,
@@ -104,6 +111,7 @@
     {
       "outlet": "Politico EU",
       "id": "politico_eu",
+      "domain": "politico.eu",
       "type": "rss",
       "baseline_leaning": "Center",
       "requires_auth": false,
@@ -119,6 +127,7 @@
     {
       "outlet": "Financial Times",
       "id": "financial_times",
+      "domain": "ft.com",
       "type": "rss",
       "baseline_leaning": "Center",
       "requires_auth": true,
